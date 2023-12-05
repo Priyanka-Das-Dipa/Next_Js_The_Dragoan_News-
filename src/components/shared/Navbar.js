@@ -16,6 +16,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Link from "next/link";
+import Header from "./Header";
 
 const navItems = [
   {
@@ -46,45 +47,49 @@ const navItems = [
 
 function Navbar() {
   return (
-    <AppBar position="static" className="bg-black">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box>
-            <Image src={logo} width={100} height={100} alt="logo"></Image>
-          </Box>
-          <Box className="w-full text-center">
-            {navItems.map((item) => (
-              <Link key={item} href={item.pathName}>
-                <Button className="text-white">{item.route}</Button>
-              </Link>
-            ))}
-          </Box>
-          <Box>
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{ "& svg": { color: "white" } }}
-            >
-              <IconButton>
-                <FacebookIcon></FacebookIcon>
-              </IconButton>
-              <IconButton>
-                <TwitterIcon></TwitterIcon>
-              </IconButton>
-              <IconButton>
-                <YouTubeIcon></YouTubeIcon>
-              </IconButton>
-              <IconButton>
-                <LinkedInIcon></LinkedInIcon>
-              </IconButton>
-              <IconButton>
-                <InstagramIcon></InstagramIcon>
-              </IconButton>
-            </Stack>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <>
+      <Header></Header>
+
+      <AppBar position="static" className="bg-black">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box>
+              <Image src={logo} width={100} height={100} alt="logo"></Image>
+            </Box>
+            <Box className="w-full text-center">
+              {navItems.map((item) => (
+                <Link key={item} href={item.pathName}>
+                  <Button className="text-white">{item.route}</Button>
+                </Link>
+              ))}
+            </Box>
+            <Box>
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ "& svg": { color: "white" } }}
+              >
+                <IconButton>
+                  <FacebookIcon></FacebookIcon>
+                </IconButton>
+                <IconButton>
+                  <TwitterIcon></TwitterIcon>
+                </IconButton>
+                <IconButton>
+                  <YouTubeIcon></YouTubeIcon>
+                </IconButton>
+                <IconButton>
+                  <LinkedInIcon></LinkedInIcon>
+                </IconButton>
+                <IconButton>
+                  <InstagramIcon></InstagramIcon>
+                </IconButton>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 }
 export default Navbar;
